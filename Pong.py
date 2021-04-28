@@ -22,7 +22,7 @@ score_b = 0
 paddle_a = turtle.Turtle()
 paddle_a.speed(0)
 paddle_a.shape("square")
-paddle_a.color("white")
+paddle_a.color("red")
 paddle_a.shapesize(stretch_wid=5, stretch_len=1)
 paddle_a.penup()
 paddle_a.goto(-350,0)
@@ -33,7 +33,7 @@ paddle_a.goto(-350,0)
 paddle_b = turtle.Turtle()
 paddle_b.speed(0)
 paddle_b.shape("square")
-paddle_b.color("white")
+paddle_b.color("orange")
 paddle_b.shapesize(stretch_wid=5, stretch_len=1)
 paddle_b.penup()
 paddle_b.goto(350,0)
@@ -44,11 +44,11 @@ paddle_b.goto(350,0)
 ball = turtle.Turtle()
 ball.speed(0)
 ball.shape("circle")
-ball.color("yellow")
+ball.color("green")
 ball.penup()
 ball.goto(0,0)
-ball.dx = 0.1
-ball.dy = -0.1
+ball.dx = 0.3
+ball.dy = -0.3
 
 
 # Pen 
@@ -144,3 +144,21 @@ while True:
         ball.setx(-340)
         ball.dx *= -1
         os.system("aplay /home/marquez/Desktop/PythonProjects/PONG/bounce.wav&")
+
+
+     # basic AI implement
+
+    if paddle_b.ycor() < ball.ycor() and abs(paddle_b.ycor() - ball.ycor()) > 10 and ball.xcor() > 100:
+      #  paddle_b_up()
+         paddle_b_up() 
+        #paddle_b.sety(ball.ycor())
+    elif paddle_b.ycor() > ball.ycor() and abs(paddle_b.ycor() - ball.ycor()) > 10 and ball.xcor() > 100:
+     #   paddle_b_down()    
+
+
+         paddle_b_down() 
+
+    # FIX EDGES and make the pads not going off the screen    
+    # FIX unbeatable AI :D
+
+    
